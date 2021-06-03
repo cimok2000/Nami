@@ -1,0 +1,28 @@
+{
+  "name": "nami",
+  "version": "1.0.0",
+  "description": "Nami Discord Bot",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cimok2000/Nami.git"
+  },
+  "keywords": [
+    "Discord",
+    "Bot"
+  ],
+  "author": "cimok",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cimok2000/Nami/issues"
+  },
+  "homepage": "https://github.com/cimok2000/Nami#readme"
+}
