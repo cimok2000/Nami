@@ -4,6 +4,7 @@ console.clear();
 
 const chalk = require("chalk");
 const { version } = require("./package.json");
+const { prefix } = require("./config.json");
 
 console.log(
   chalk.hex("#FF33A7")(`
@@ -54,6 +55,7 @@ class Nami {
   onMessageCreate(message) {
     if (message.author.bot) return;
     console.log(`${message.author.username}: ${message.content}`)
+    if (!message.content.startsWith(prefix)) return;
     const command = this.commands.get(message.content.split(" ")[0].slice(1));
     if (command) {
       const args = message.content.split(" ").slice(1);
