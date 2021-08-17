@@ -1,10 +1,9 @@
 const mongoose = require("mongoose");
 const url = "mongodb://localhost:27017/Nami";
-const userSchema = require("../schemas/user.js");
 
 class UserDB {
   constructor() {
-    this.User = userSchema;
+    this.User = require("../schemas/user.js");
     const connection = mongoose.connection;
     connection.on("error", console.error.bind(console, "connection error:"));
     connection.once("open", function () {
@@ -35,11 +34,45 @@ class UserDB {
   }
 }
 
-// const userDB = new UserDB("mongodb://localhost:27017/Nami");
-// userDB.addUser({points: 0, username: "cimok", _id: 165087303281147904});
-// userDB.findUser("cimok");
-// userDB.updateUser("cimok", {points: 500});
+class WorldDB {
+  constructor() {
+    this.World = require("../schemas/world.js");
+    const connection = mongoose.connection;
+    connection.on("error", console.error.bind(console, "connection error:"));
+    connection.once("open", function () {
+      console.log("Connected to MongoDB");
+    });
+
+    // Connection to MongoDB on initialization
+    mongoose.connect(url, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+  }
+
+  async initWorld(name, status, topFloor) {
+    let newWorld = new this.World({
+      name: name,
+      status: status,
+      floorsCompleted: 0,
+      topFloor: topFloor,
+    });
+    newWorld.save((err, world) => {
+      if (err) return console.error(err);
+      console.log(`Added ${world.name} that is ${world.status} with a maximum of ${world.topFloor} to database.`);
+    });
+  }
+
+  async getWorldStatus() {
+    return await this.World.find({});
+  }
+
+  async completeFloor() {
+    await this.World.updateOne({}, { $inc: { floorsCompleted: 1 } });
+  }
+}
 
 module.exports = {
   UserDB,
+  WorldDB,
 };

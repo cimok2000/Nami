@@ -22,7 +22,7 @@ const schema = new Schema({
   inventory: {
     type: Object,
     default: {
-      weapons: { type: Array, default: [] },
+      weapons: { type: Array, default: []},
       armor: { type: Array, default: [] },
       items: { type: Array, default: [] },
       skills: { type: Array, default: [] },

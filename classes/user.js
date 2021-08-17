@@ -1,5 +1,4 @@
 const { UserDB } = require("./mongodb.js");
-const { MessageEmbed } = require("discord.js");
 
 class User {
   constructor() {
@@ -11,7 +10,9 @@ class User {
     this.profile = {
       _id: this.returned._id,
       username: this.returned.username,
-      points: this.returned.points
+      points: this.returned.points,
+      guild: this.returned.guild,
+      party: this.returned.party
     }
     return this.profile;
   }
@@ -35,7 +36,7 @@ class User {
       },
       inventory: {
           weapons: [],
-          armor: [],
+          armors: [],
           items: [],
           skills: [],
       },
