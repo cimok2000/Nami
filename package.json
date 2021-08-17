@@ -4,12 +4,15 @@
   "description": "Nami Discord Bot",
   "main": "index.js",
   "dependencies": {
-    "discord.js": "^12.5.3",
-    "dotenv": "^10.0.0"
+    "chalk": "^4.1.2",
+    "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0",
+    "mongoose": "^5.13.7",
+    "reconlx": "^2.1.2"
   },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "run": "node index.js",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
