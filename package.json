@@ -2,30 +2,31 @@
   "name": "nami",
   "version": "1.0.0",
   "description": "Nami Discord Bot",
-  "main": "index.js",
-  "dependencies": {
-    "chalk": "^4.1.2",
-    "discord.js": "^13.1.0",
-    "dotenv": "^10.0.0",
-    "mongoose": "^5.13.7",
-    "reconlx": "^2.1.2"
-  },
+  "main": "index.ts",
   "scripts": {
-    "run": "node index.js",
-    "dev": "nodemon index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cimok2000/Nami.git"
+    "dev": "nodemon ./index.ts",
+    "prettify": "npx prettier --write \"./**/*.ts\" && npx prettier --write \"./**/*.json\""
   },
   "keywords": [
-    "Discord",
-    "Bot"
+    "nami"
   ],
   "author": "cimok",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cimok2000/Nami/issues"
-  },
-  "homepage": "https://github.com/cimok2000/Nami#readme"
+  "dependencies": {
+    "@discordjs/opus": "^0.5.3",
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "@types/mongoose": "^5.11.97",
+    "axios": "^0.24.0",
+    "chalk": "^4.1.2",
+    "chalk-rainbow": "^1.0.0",
+    "discord-api-types": "^0.24.0",
+    "discord-player": "^5.2.0",
+    "discord.js": "^13.2.0",
+    "dotenv": "^10.0.0",
+    "ffmpeg-static": "^4.4.0",
+    "mongoose": "^6.0.14",
+    "nekos.life": "^2.0.7",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  }
 }
